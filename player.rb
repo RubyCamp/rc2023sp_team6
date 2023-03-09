@@ -1,19 +1,9 @@
-class Player
-  attr_accessor :x, :y
+require_relative "character"
 
-  def initialize
-    @x = 100
-    @y = 100
-    @image = Image.new(20, 20).circle_fill(10, 10, 10, C_WHITE)
-  end
-
+class Player < Character
   def update
     @x += Input.x
     @y += Input.y
+    self.limit
   end
-
-  def draw
-    Window.draw(@x, @y, @image)
-  end
-  
 end
